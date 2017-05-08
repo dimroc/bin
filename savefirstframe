@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]
+then
+  echo "Usage: savefirstframe <video_path>"
+  exit 1
+fi
+
+STAMP=`date +%s`
+BASENAME=`basename ${1%.*}`
+DESTINATION=./${BASENAME}_${STAMP}.jpg
+
+ffmpeg -i $1 -vframes 1 $DESTINATION
+
+echo
+echo $DESTINATION
