@@ -4,5 +4,4 @@ require 'tempfile'
 
 puts "Prettying #{ARGV[0]}"
 new_file = Tempfile.new('json-pretty')
-`cat #{ARGV[0]} | underscore print > #{new_file.path}`
-`mv #{new_file.path} #{ARGV[0]}`
+`(cat #{ARGV[0]} | underscore print > #{new_file.path}) && mv #{new_file.path} #{ARGV[0]}`
