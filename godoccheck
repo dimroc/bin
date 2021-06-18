@@ -1,0 +1,3 @@
+#!/bin/bash
+
+golint $(go list ./... | ag -v /vendor) | ag -v cltest | ag -v migration
